@@ -5,8 +5,15 @@ import {
   Text,
   View
 } from 'react-native';
+import './UserAgent';
+import io from 'socket.io-client/socket.io';
 
 class WordDuel extends Component {
+  constructor(props) {
+    super(props);
+    this.socket = io('http://localhost:3000', {jsonp: false});
+  }
+
   render() {
     return (
       <View style={styles.container}>
